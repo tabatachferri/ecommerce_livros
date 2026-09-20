@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<link rel="stylesheet" href="/custom.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Carrinho</title>
+</head>
+
+<body>
+
+<h1>Meu Carrinho</h1>
+
+<table border="1">
+
+    <thead>
+    <tr>
+        <th>Livro</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Subtotal</th>
+        <th>Ação</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr>
+        <td>Dom Casmurro</td>
+        <td>R$ 39,90</td>
+
+        <td>
+            <input type="number" value="1" min="1">
+        </td>
+
+        <td>R$ 39,90</td>
+
+        <td>
+            <button type="button">Alterar quantidade</button>
+            <button type="button">Remover</button>
+        </td>
+    </tr>
+
+    </tbody>
+
+</table>
+
+<br>
+
+<h3>Cupons</h3>
+
+<label>Cupom promocional:</label>
+<input type="text" placeholder="Digite o cupom">
+
+<button type="button">Aplicar cupom</button>
+
+<br><br>
+
+<label>Cupom de troca:</label>
+<input type="text" placeholder="Digite o cupom de troca">
+
+<button type="button">Aplicar cupom de troca</button>
+
+<br><br>
+
+<h3>Total: R$ 39,90</h3>
+
+<a href="/endereco">
+    <button type="button">Continuar para entrega</button>
+</a>
+
+<br><br>
+
+<a href="/livros">
+    <button type="button">Continuar comprando</button>
+</a>
+
+<br><br>
+
+<a href="/">
+    <button type="button">Voltar</button>
+</a>
+
+</body>
+
+</html>

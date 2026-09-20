@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<link rel="stylesheet" href="/custom.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pagamento</title>
+</head>
+
+<body>
+
+<h1>Pagamento do Pedido</h1>
+
+<h2>Valor do pedido</h2>
+<p><strong>Total:</strong> R$ 39,90</p>
+
+<hr>
+
+<h2>Cupons</h2>
+
+<label>
+    <input type="checkbox" name="cupomPromocional">
+    Cupom promocional: 10% de desconto
+</label>
+
+<br><br>
+
+<label>
+    <input type="checkbox" name="cupomTroca">
+    Cupom de troca: R$ 10,00
+</label>
+
+<hr>
+
+<h2>Cartões para pagamento</h2>
+
+<h3>Cartões cadastrados</h3>
+
+<label>
+    <input type="checkbox" name="cartao">
+    Cartão final 1234 — Visa
+</label>
+
+<br><br>
+
+<label>
+    <input type="checkbox" name="cartao">
+    Cartão final 5678 — Mastercard
+</label>
+
+<h3>Adicionar novo cartão</h3>
+
+<form>
+
+    <label>Número do cartão:</label>
+    <input type="text" name="numeroCartao">
+
+    <br><br>
+
+    <label>Nome no cartão:</label>
+    <input type="text" name="nomeCartao">
+
+    <br><br>
+
+    <label>Validade:</label>
+    <input type="text" name="validade">
+
+    <br><br>
+
+    <label>CVV:</label>
+    <input type="text" name="cvv">
+
+    <br><br>
+
+    <button type="button">Adicionar cartão</button>
+
+</form>
+
+<hr>
+
+<h2>Combinar pagamentos</h2>
+
+<p>É possível utilizar mais de um cartão e combinar cartões com cupons.</p>
+
+<label>Valor no cartão 1:</label>
+<input type="number" value="20.00">
+
+<br><br>
+
+<label>Valor no cartão 2:</label>
+<input type="number" value="19.90">
+
+<br><br>
+
+<p><strong>Total dos pagamentos:</strong> R$ 39,90</p>
+
+<br>
+
+<a href="/pedido">
+    <button type="button">Finalizar pedido</button>
+</a>
+
+<br><br>
+
+<a href="/endereco">
+    <button type="button">Voltar</button>
+</a>
+
+</body>
+
+</html>

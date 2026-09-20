@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<link rel="stylesheet" href="/custom.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gráfico de Análise - ADM</title>
+</head>
+
+<body>
+
+<h1>Gráfico de Análise</h1>
+
+<h2>Pedidos por status</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Status</th>
+        <th>Quantidade</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>EM ABERTO</td>
+        <td>5</td>
+    </tr>
+
+    <tr>
+        <td>EM PROCESSAMENTO</td>
+        <td>8</td>
+    </tr>
+
+    <tr>
+        <td>PAGAMENTO REALIZADO</td>
+        <td>12</td>
+    </tr>
+
+    <tr>
+        <td>EM TRÂNSITO</td>
+        <td>7</td>
+    </tr>
+
+    <tr>
+        <td>ENTREGUE</td>
+        <td>18</td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+
+
+<h2>Gráfico de linhas - Pedidos por status</h2>
+
+<canvas id="graficoPedidos" width="700" height="350"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('graficoPedidos');
+
+    new Chart(ctx, {
+        type: 'line',
+
+        data: {
+            labels: [
+                'EM ABERTO',
+                'EM PROCESSAMENTO',
+                'PAGAMENTO REALIZADO',
+                'EM TRÂNSITO',
+                'ENTREGUE'
+            ],
+
+            datasets: [{
+                label: 'Quantidade de pedidos',
+
+                data: [5, 8, 12, 7, 18],
+
+                borderWidth: 2,
+
+                fill: false
+            }]
+        },
+
+        options: {
+            responsive: false,
+
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Quantidade de pedidos'
+                    }
+                },
+
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Status do pedido'
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+<br>
+
+<div style="width: 160px; height: 50px; background-color: lightgray;">
+    EM PROCESSAMENTO
+</div>
+
+<br>
+
+<div style="width: 240px; height: 50px; background-color: lightgray;">
+    PAGAMENTO REALIZADO
+</div>
+
+<br>
+
+<div style="width: 140px; height: 50px; background-color: lightgray;">
+    EM TRÂNSITO
+</div>
+
+<br>
+
+<div style="width: 300px; height: 50px; background-color: lightgray;">
+    ENTREGUE
+</div>
+
+<br><br>
+
+<a href="/admin">
+    <button type="button">Voltar para ADM</button>
+</a>
+
+</body>
+
+</html>
