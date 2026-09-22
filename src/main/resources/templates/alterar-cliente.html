@@ -1,46 +1,471 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<link rel="stylesheet" href="/custom.css">
-
 <head>
+
     <meta charset="UTF-8">
-    <title>Alterar Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alterar Cliente | Livraria HF</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/custom.css">
+
+    <style>
+
+        .formulario-area {
+            padding: 55px 0 70px;
+        }
+
+        .formulario-header {
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+
+        .formulario-titulo {
+            margin: 18px 0 8px;
+            font-family: "Fraunces", serif;
+            font-size: 42px;
+            color: var(--ink);
+        }
+
+        .formulario-descricao {
+            color: var(--ink-soft);
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .formulario-box {
+            max-width: 900px;
+        }
+
+        .formulario-secao {
+            border-top: 1px solid var(--line);
+            padding: 25px 0;
+        }
+
+        .formulario-secao h2 {
+            margin: 0 0 20px;
+            font-family: "Fraunces", serif;
+            font-size: 24px;
+            color: var(--brass);
+        }
+
+        .campos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px 25px;
+        }
+
+        .campo {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .campo label {
+            font-weight: 600;
+            color: var(--ink);
+            font-size: 15px;
+        }
+
+        .campo input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 13px;
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.55);
+            color: var(--ink);
+            font-family: "Source Sans 3", sans-serif;
+            font-size: 16px;
+            border-radius: 2px;
+        }
+
+        .campo input:focus {
+            outline: 2px solid rgba(176, 119, 38, 0.25);
+            border-color: var(--brass);
+        }
+
+        .acoes-formulario {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-salvar {
+            border: none;
+            cursor: pointer;
+            padding: 13px 24px;
+            background: var(--ink);
+            color: white;
+            font-family: "Source Sans 3", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 2px;
+        }
+
+        .btn-salvar:hover {
+            opacity: 0.88;
+        }
+
+        .btn-cancelar {
+            display: inline-block;
+            padding: 13px 24px;
+            color: var(--ink);
+            text-decoration: none;
+            border: 1px solid var(--line);
+            font-size: 15px;
+            font-weight: 600;
+            background: transparent;
+            border-radius: 2px;
+        }
+
+        .btn-cancelar:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        @media (max-width: 700px) {
+
+            .campos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .formulario-titulo {
+                font-size: 34px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<h1>Alterar Cliente</h1>
+<div class="texture"></div>
 
-<form>
 
-    <label>Nome:</label>
-    <input type="text" name="nome" value="Maria Silva">
+<!-- =========================
+     TOPO ADMINISTRATIVO
+     ========================= -->
 
-    <br><br>
+<header class="topbar">
 
-    <label>CPF:</label>
-    <input type="text" name="cpf" value="123.456.789-00">
+    <div class="topbar-inner">
 
-    <br><br>
+        <div class="brand">
 
-    <label>E-mail:</label>
-    <input type="email" name="email" value="maria@email.com">
+            <span class="brand-mark">
+                Livraria HF
+            </span>
 
-    <br><br>
+            <span class="brand-tag">
+                Da busca a entrega, cada etapa foi pensada para ser simples
+            </span>
 
-    <label>Telefone:</label>
-    <input type="text" name="telefone" value="(11) 99999-9999">
+        </div>
 
-    <br><br>
+    </div>
 
-    <button type="submit">Salvar alterações</button>
+</header>
 
-    <a href="/clientes">
-        <button type="button">Cancelar</button>
-    </a>
 
-</form>
+<!-- =========================
+     FAIXA ADMINISTRATIVA
+     ========================= -->
+
+<nav class="catalog-nav">
+
+    <div class="wrap">
+
+        <a href="/admin" class="admin">
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.6">
+
+                <circle cx="12" cy="12" r="3"/>
+
+                <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.1 2.1-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.1h-3v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1-2.1-2.1.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H5.3v-3h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 2.1-2.1.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.6V4h3v.1a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1 2.1 2.1-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.1v3h-.1a1.7 1.7 0 0 0-1.6 1Z"/>
+
+            </svg>
+
+            Área administrativa - Login
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     FORMULÁRIO
+     ========================= -->
+
+<section class="formulario-area">
+
+    <div class="wrap">
+
+        <div class="formulario-header">
+
+            <div class="eyebrow-line">
+
+                <span class="rule"></span>
+
+                Livraria HF
+
+            </div>
+
+            <h1 class="formulario-titulo">
+                Alterar Cliente
+            </h1>
+
+            <p class="formulario-descricao">
+                Atualize os dados cadastrais do cliente.
+            </p>
+
+        </div>
+
+
+        <div class="formulario-box">
+
+            <form action="/clientes/alterar" method="post">
+
+
+                <!-- ID -->
+
+                <input type="hidden"
+                       name="id"
+                       th:value="${cliente.id}">
+
+
+                <!-- DADOS PESSOAIS -->
+
+                <div class="formulario-secao">
+
+                    <h2>
+                        Dados pessoais
+                    </h2>
+
+                    <div class="campos-grid">
+
+
+                        <div class="campo">
+
+                            <label for="nome">
+                                Nome
+                            </label>
+
+                            <input id="nome"
+                                   type="text"
+                                   name="nome"
+                                   th:value="${cliente.nome}"
+                                   required>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="cpf">
+                                CPF
+                            </label>
+
+                            <input id="cpf"
+                                   type="text"
+                                   name="cpf"
+                                   th:value="${cliente.cpf}"
+                                   required>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="email">
+                                E-mail
+                            </label>
+
+                            <input id="email"
+                                   type="email"
+                                   name="email"
+                                   th:value="${cliente.email}"
+                                   required>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="telefone">
+                                Telefone
+                            </label>
+
+                            <input id="telefone"
+                                   type="text"
+                                   name="telefone"
+                                   th:value="${cliente.telefone}">
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- ENDEREÇO -->
+
+                <div class="formulario-secao">
+
+                    <h2>
+                        Endereço
+                    </h2>
+
+                    <div class="campos-grid">
+
+
+                        <div class="campo">
+
+                            <label for="cep">
+                                CEP
+                            </label>
+
+                            <input id="cep"
+                                   type="text"
+                                   name="cep"
+                                   th:value="${cliente.cep}"
+                                   required>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="logradouro">
+                                Logradouro
+                            </label>
+
+                            <input id="logradouro"
+                                   type="text"
+                                   name="logradouro"
+                                   th:value="${cliente.logradouro}"
+                                   required>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="numero">
+                                Número
+                            </label>
+
+                            <input id="numero"
+                                   type="text"
+                                   name="numero"
+                                   th:value="${cliente.numero}"
+                                   required>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="bairro">
+                                Bairro
+                            </label>
+
+                            <input id="bairro"
+                                   type="text"
+                                   name="bairro"
+                                   th:value="${cliente.bairro}"
+                                   required>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="cidade">
+                                Cidade
+                            </label>
+
+                            <input id="cidade"
+                                   type="text"
+                                   name="cidade"
+                                   th:value="${cliente.cidade}"
+                                   required>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="estado">
+                                Estado
+                            </label>
+
+                            <input id="estado"
+                                   type="text"
+                                   name="estado"
+                                   th:value="${cliente.estado}"
+                                   required>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTÕES -->
+
+                <div class="acoes-formulario">
+
+                    <button type="submit"
+                            class="btn-salvar">
+                        Salvar alterações
+                    </button>
+
+                    <a href="/clientes"
+                       class="btn-cancelar">
+                        Cancelar
+                    </a>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="wrap">
+
+        <span>
+            Livraria HF
+        </span>
+
+    </div>
+
+</footer>
+
 
 </body>
 

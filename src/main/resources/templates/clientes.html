@@ -1,83 +1,658 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<link rel="stylesheet" href="/custom.css">
-
 <head>
+
     <meta charset="UTF-8">
-    <title>Consulta de Clientes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clientes | Livraria HF</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/custom.css">
+
+    <style>
+
+        .clientes-area {
+            padding: 55px 0 70px;
+        }
+
+        .clientes-header {
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+        }
+
+        .clientes-title {
+            margin: 18px 0 8px;
+            font-family: "Fraunces", serif;
+            font-size: 42px;
+            color: var(--ink);
+        }
+
+        .clientes-description {
+            color: var(--ink-soft);
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .clientes-lista {
+            border-top: 1px solid var(--line);
+        }
+
+        .cliente-item {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .cliente-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            font-weight: 600;
+            font-size: 18px;
+
+            color: var(--ink);
+        }
+
+        .cliente-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .cliente-item summary::after {
+            content: "+";
+            font-size: 25px;
+            font-weight: 400;
+            color: var(--brass);
+        }
+
+        .cliente-item[open] summary::after {
+            content: "−";
+        }
+
+        .cliente-item summary:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .cliente-nome {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cliente-id {
+            color: var(--ink-soft);
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .cliente-detalhes {
+            padding: 5px 25px 28px;
+            background: rgba(255, 253, 247, 0.35);
+        }
+
+        .detalhes-secao {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .detalhes-secao:last-of-type {
+            border-bottom: none;
+        }
+
+        .detalhes-titulo {
+            margin: 0 0 15px;
+
+            font-family: "Fraunces", serif;
+            font-size: 20px;
+
+            color: var(--brass);
+        }
+
+        .dados-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px 30px;
+        }
+
+        .dado {
+            display: grid;
+            gap: 4px;
+        }
+
+        .dado-label {
+            font-size: 12px;
+            color: var(--ink-soft);
+
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .dado-valor {
+            font-size: 15px;
+            color: var(--ink);
+            word-break: break-word;
+        }
+
+        .status-ativo,
+        .status-inativo {
+            display: inline-block;
+
+            padding: 6px 12px;
+
+            border: 1px solid var(--line);
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .status-inativo {
+            opacity: 0.6;
+        }
+
+        .cliente-acoes {
+            display: flex;
+            gap: 10px;
+
+            margin-top: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn-acao {
+            display: inline-block;
+
+            padding: 10px 17px;
+
+            background: var(--ink);
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            border-radius: 2px;
+        }
+
+        .btn-acao:hover {
+            opacity: 0.88;
+        }
+
+        .btn-inativar {
+            background: #7a3f35;
+        }
+
+        .btn-ativar {
+            background: #315b43;
+        }
+
+        .clientes-voltar {
+            display: inline-block;
+
+            margin-top: 35px;
+
+            color: var(--ink);
+
+            text-decoration: none;
+
+            border-bottom: 1px solid var(--ink);
+
+            padding-bottom: 3px;
+
+            font-weight: 600;
+        }
+
+        @media (max-width: 800px) {
+
+            .dados-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+        @media (max-width: 550px) {
+
+            .dados-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .clientes-title {
+                font-size: 34px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<h1>Consulta de Clientes</h1>
+<div class="texture"></div>
 
-<table border="1">
 
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>E-mail</th>
-        <th>Status</th>
-        <th>Ações</th>
-    </tr>
-    </thead>
+<header class="topbar">
 
-    <tbody>
+    <div class="topbar-inner">
 
-    <tr>
-        <td>1</td>
-        <td>Maria Silva</td>
-        <td>maria@email.com</td>
-        <td>Ativo</td>
-        <td>
-            <a href="/clientes/alterar/1">
-                <button type="button">Alterar</button>
-            </a>
-            <a href="/clientes/inativar/1">
-                <button type="button">Inativar</button>
-            </a>
-        </td>
-    </tr>
+        <div class="brand">
 
-    <tr>
-        <td>2</td>
-        <td>João Santos</td>
-        <td>joao@email.com</td>
-        <td>Ativo</td>
-        <td>
-            <button>Alterar</button>
-            <button>Inativar</button>
-        </td>
-    </tr>
+            <span class="brand-mark">
+                Livraria HF
+            </span>
 
-    <tr>
-        <td>3</td>
-        <td>Ana Souza</td>
-        <td>ana@email.com</td>
-        <td>Inativo</td>
-        <td>
-            <button>Alterar</button>
-            <button>Inativar</button>
-        </td>
-    </tr>
+            <span class="brand-tag">
+                Da busca a entrega, cada etapa foi pensada para ser simples
+            </span>
 
-    </tbody>
+        </div>
 
-</table>
+    </div>
 
-<br>
+</header>
 
-<a href="/cadastro">
-    <button>Cadastrar novo cliente</button>
-</a>
 
-<br><br>
+<nav class="catalog-nav">
 
-<a href="/">
-    <button>Voltar</button>
-</a>
+    <div class="wrap">
+
+        <a href="/admin" class="admin">
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.6">
+
+                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+
+                <path d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.56V20a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .33-1.87 1.7 1.7 0 0 0-1.55-1H4a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.33-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.33h.02a1.7 1.7 0 0 0 1-1.55V4a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55h.02a1.7 1.7 0 0 0 1.87-.33l.06-.06a2 2 0 1 1 2.83 2.83l.06.06a1.7 1.7 0 0 0-.33 1.87v.02a1.7 1.7 0 0 0 1.55 1H20a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1Z"/>
+
+            </svg>
+
+            Área administrativa - Login
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="clientes-area">
+
+    <div class="wrap">
+
+
+        <div class="clientes-header">
+
+            <div class="eyebrow-line">
+
+                <span class="rule"></span>
+
+                Livraria HF
+
+            </div>
+
+
+            <!-- CONSULTAR -->
+
+            <h1 class="clientes-title"
+                th:if="${modo == 'consultar'}">
+
+                Clientes
+
+            </h1>
+
+
+            <!-- ALTERAR -->
+
+            <h1 class="clientes-title"
+                th:if="${modo == 'alterar'}">
+
+                Clientes - Alterar
+
+            </h1>
+
+
+            <!-- INATIVAR -->
+
+            <h1 class="clientes-title"
+                th:if="${modo == 'inativar'}">
+
+                Clientes - Inativar
+
+            </h1>
+
+
+            <!-- TEXTO CONSULTAR -->
+
+            <p class="clientes-description"
+               th:if="${modo == 'consultar'}">
+
+                Consulte os clientes cadastrados na Livraria HF.
+
+            </p>
+
+
+            <!-- TEXTO ALTERAR -->
+
+            <p class="clientes-description"
+               th:if="${modo == 'alterar'}">
+
+                Altere os dados cadastrais do cliente.
+
+            </p>
+
+
+            <!-- TEXTO INATIVAR -->
+
+            <p class="clientes-description"
+               th:if="${modo == 'inativar'}">
+
+                Selecione um cliente para inativar ou ativar seu cadastro.
+
+            </p>
+
+        </div>
+
+
+        <div class="clientes-lista">
+
+
+            <details class="cliente-item"
+                     th:each="cliente : ${clientes}">
+
+
+                <summary>
+
+                    <div class="cliente-nome">
+
+                        <span th:text="${cliente.nome}">
+                            Nome do cliente
+                        </span>
+
+                        <span class="cliente-id">
+
+                            ID:
+
+                            <span th:text="${cliente.id}">
+                                1
+                            </span>
+
+                        </span>
+
+                    </div>
+
+                </summary>
+
+
+                <div class="cliente-detalhes">
+
+
+                    <!-- DADOS PESSOAIS -->
+
+                    <div class="detalhes-secao">
+
+                        <h3 class="detalhes-titulo">
+                            Dados pessoais
+                        </h3>
+
+
+                        <div class="dados-grid">
+
+                            <div class="dado">
+
+                                <span class="dado-label">
+                                    CPF
+                                </span>
+
+                                <span class="dado-valor"
+                                      th:text="${cliente.cpf}">
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="dado">
+
+                                <span class="dado-label">
+                                    E-mail
+                                </span>
+
+                                <span class="dado-valor"
+                                      th:text="${cliente.email}">
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="dado">
+
+                                <span class="dado-label">
+                                    Telefone
+                                </span>
+
+                                <span class="dado-valor"
+                                      th:text="${cliente.telefone}">
+                                    -
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ENDEREÇO -->
+
+                    <div class="detalhes-secao">
+
+                        <h3 class="detalhes-titulo">
+                            Endereço
+                        </h3>
+
+
+                        <div class="dados-grid">
+
+                            <div class="dado">
+
+                                <span class="dado-label">
+                                    CEP
+                                </span>
+
+                                <span class="dado-valor"
+                                      th:text="${cliente.cep}">
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="dado">
+
+                                <span class="dado-label">
+                                    Logradouro
+                                </span>
+
+                                <span class="dado-valor"
+                                      th:text="${cliente.logradouro}">
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="dado">
+
+                                <span class="dado-label">
+                                    Número
+                                </span>
+
+                                <span class="dado-valor"
+                                      th:text="${cliente.numero}">
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="dado">
+
+                                <span class="dado-label">
+                                    Bairro
+                                </span>
+
+                                <span class="dado-valor"
+                                      th:text="${cliente.bairro}">
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="dado">
+
+                                <span class="dado-label">
+                                    Cidade
+                                </span>
+
+                                <span class="dado-valor"
+                                      th:text="${cliente.cidade}">
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="dado">
+
+                                <span class="dado-label">
+                                    Estado
+                                </span>
+
+                                <span class="dado-valor"
+                                      th:text="${cliente.estado}">
+                                    -
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STATUS -->
+
+                    <div class="detalhes-secao">
+
+                        <h3 class="detalhes-titulo">
+                            Status
+                        </h3>
+
+
+                        <span th:if="${cliente.ativo}"
+                              class="status-ativo">
+
+                            Ativo
+
+                        </span>
+
+
+                        <span th:unless="${cliente.ativo}"
+                              class="status-inativo">
+
+                            Inativo
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- BOTÕES -->
+
+                    <div class="cliente-acoes">
+
+                        <!-- TELA ALTERAR: SOMENTE ALTERAR -->
+                        <a th:if="${modo == 'alterar'}"
+                           th:href="@{/clientes/editar/{id}(id=${cliente.id})}"
+                           class="btn-acao">
+
+                            Alterar
+
+                        </a>
+
+
+                        <!-- TELA INATIVAR: CLIENTE ATIVO -->
+                        <a th:if="${modo == 'inativar' && cliente.ativo}"
+                           th:href="@{/clientes/inativar/{id}(id=${cliente.id})}"
+                           class="btn-acao btn-inativar">
+
+                            Inativar
+
+                        </a>
+
+
+                        <!-- TELA INATIVAR: CLIENTE INATIVO -->
+                        <a th:if="${modo == 'inativar' && !cliente.ativo}"
+                           th:href="@{/clientes/ativar/{id}(id=${cliente.id})}"
+                           class="btn-acao btn-ativar">
+
+                            Ativar
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </details>
+
+        </div>
+
+
+        <a href="/admin"
+           class="clientes-voltar">
+
+            Voltar para Área Administrativa
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="wrap">
+
+        <span>
+            Livraria HF
+        </span>
+
+    </div>
+
+</footer>
+
 
 </body>
-</html>ml>
+
+</html>

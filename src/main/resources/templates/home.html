@@ -1,120 +1,275 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<link rel="stylesheet" href="/custom.css">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Livraria HF</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet" href="/custom.css">
 </head>
 
 <body>
+
 <div class="texture"></div>
 
 <header class="topbar">
+
     <div class="topbar-inner">
+
         <div class="brand">
             <span class="brand-mark">Livraria HF</span>
-            <span class="brand-tag">catálogo &amp; livraria on-line</span>
+            <span class="brand-tag">Da busca a entrega, cada etapa foi pensada para ser simples
+</span>
         </div>
+
         <div class="auth-links">
             <a href="/login">Entrar</a>
             <a href="/cadastro" class="btn-create">Criar conta</a>
         </div>
+
     </div>
+
 </header>
 
+
 <nav class="catalog-nav">
+
     <div class="wrap">
+
         <a href="/livros">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h9a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3V4Z"/><path d="M16 7h4v13h-4"/></svg>
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.6">
+
+                <path d="M4 4h9a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3V4Z"/>
+                <path d="M16 7h4v13h-4"/>
+
+            </svg>
+
             Livros
+
         </a>
-        <a href="/clientes">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg>
-            Consultar clientes
-        </a>
+
+
         <button type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l1.4 12.6A2 2 0 0 0 8.4 18.4h9.2a2 2 0 0 0 2-1.7L21 8H6"/><circle cx="9" cy="21" r="1.2"/><circle cx="17" cy="21" r="1.2"/></svg>
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.6">
+
+                <path d="M3 4h2l1.4 12.6A2 2 0 0 0 8.4 18.4h9.2a2 2 0 0 0 2-1.7L21 8H6"/>
+                <circle cx="9" cy="21" r="1.2"/>
+                <circle cx="17" cy="21" r="1.2"/>
+
+            </svg>
+
             Carrinho
+
         </button>
+
+
         <button type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.6">
+
+                <rect x="4" y="5" width="16" height="15" rx="1.5"/>
+                <path d="M8 3v4M16 3v4M4 10h16"/>
+
+            </svg>
+
             Meus pedidos
+
         </button>
+
+
         <button type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 3 8v8l9 5 9-5V8Z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.6">
+
+                <path d="M12 3 3 8v8l9 5 9-5V8Z"/>
+                <path d="M3 8l9 5 9-5M12 13v8"/>
+
+            </svg>
+
             Chatbot de recomendações
+
         </button>
+
+
         <a href="/admin" class="admin">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.56V20a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .33-1.87 1.7 1.7 0 0 0-1.55-1H4a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.33-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.33h.02a1.7 1.7 0 0 0 1-1.55V4a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55h.02a1.7 1.7 0 0 0 1.87-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.33 1.87v.02a1.7 1.7 0 0 0 1.55 1H20a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1Z"/></svg>
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.6">
+
+                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+
+                <path d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.56V20a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .33-1.87 1.7 1.7 0 0 0-1.55-1H4a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.33-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.33h.02a1.7 1.7 0 0 0 1-1.55V4a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55h.02a1.7 1.7 0 0 0 1.87-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.33 1.87v.02a1.7 1.7 0 0 0 1.55 1H20a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1Z"/>
+
+            </svg>
+
             Área administrativa
+
         </a>
+
     </div>
+
 </nav>
 
+
 <section class="hero">
+
     <div class="wrap">
+
         <div class="hero-copy">
-            <div class="eyebrow-line"><span class="rule"></span> Livraria HF</div>
-            <h1 class="hero-title">Encontre seu <em>próximo</em><br>livro favorito.</h1>
-            <p class="hero-desc">Um catálogo cuidado, recomendações sob medida e um checkout sem complicação — tudo para quem lê mais do que compra.</p>
-            <div class="hero-cta">
-                <a href="/livros" class="btn-primary">Ver catálogo</a>
-                <button type="button" class="btn-ghost">Falar com o chatbot</button>
+
+            <div class="eyebrow-line">
+                <span class="rule"></span>
+                Livraria HF
             </div>
+
+            <h1 class="hero-title">
+                Encontre seu
+                <em>próximo</em>
+                <br>
+                livro favorito.
+            </h1>
+
+            <p class="hero-desc">
+                Um catálogo cuidado, recomendações sob medida e um checkout sem complicação — tudo para quem lê mais do que compra.
+            </p>
+
+            <div class="hero-cta">
+
+                <a href="/livros" class="btn-primary">
+                    Ver catálogo
+                </a>
+
+                <button type="button" class="btn-ghost">
+                    Falar com o chatbot
+                </button>
+
+            </div>
+
         </div>
+
+
         <div class="stack" aria-hidden="true">
+
             <div class="book b4"></div>
-            <div class="book b1"><span>ROMANCE</span></div>
-            <div class="book b3"><span>POESIA</span></div>
-            <div class="book b2"><span>ENSAIO</span></div>
+
+            <div class="book b1">
+                <span>ROMANCE</span>
+            </div>
+
+            <div class="book b3">
+                <span>POESIA</span>
+            </div>
+
+            <div class="book b2">
+                <span>ENSAIO</span>
+            </div>
+
         </div>
+
     </div>
+
 </section>
+
 
 <section class="section">
+
     <div class="wrap">
+
         <div class="section-head">
-            <h2 class="section-title">O que você encontra por aqui</h2>
-            <p class="section-note">Da busca ao pedido entregue, cada etapa foi pensada para ser simples.</p>
+
+            <h2 class="section-title">
+                O que você encontra por aqui
+            </h2>
+
+
+
         </div>
+
+
         <div class="index-grid">
+
             <div class="index-card">
-                <span class="index-num">Catálogo</span>
-                <h3>Livros</h3>
-                <p>Navegue por gênero, autor ou coleção e monte sua lista de leitura.</p>
+
+                <span class="index-num">
+                    Catálogo
+                </span>
+
+                <h3>
+                    Livros
+                </h3>
+
+                <p>
+                    Navegue por gênero, autor ou coleção e monte sua lista de leitura.
+                </p>
+
             </div>
+
+
             <div class="index-card">
-                <span class="index-num">Conta</span>
-                <h3>Consultar clientes</h3>
-                <p>Histórico de compras e dados de cadastro em um só lugar.</p>
+
+                <span class="index-num">
+                    Pedidos
+                </span>
+
+                <h3>
+                    Carrinho &amp; pedidos
+                </h3>
+
+                <p>
+                    Acompanhe o que está no carrinho e o status de cada entrega.
+                </p>
+
             </div>
+
+
             <div class="index-card">
-                <span class="index-num">Pedidos</span>
-                <h3>Carrinho &amp; pedidos</h3>
-                <p>Acompanhe o que está no carrinho e o status de cada entrega.</p>
+
+                <span class="index-num">
+                    Descoberta
+                </span>
+
+                <h3>
+                    Chatbot de recomendações
+                </h3>
+
+                <p>
+                    Conte o que você gosta e receba sugestões na hora.
+                </p>
+
             </div>
-            <div class="index-card">
-                <span class="index-num">Descoberta</span>
-                <h3>Chatbot de recomendações</h3>
-                <p>Conte o que você gosta e receba sugestões na hora.</p>
-            </div>
+
         </div>
+
     </div>
+
 </section>
 
-<footer>
-    <div class="wrap">
-        <span>Livraria HF</span>
-        <span>Área administrativa disponível para a equipe da loja.</span>
-    </div>
-</footer>
+
+
+
 
 </body>
 </html>

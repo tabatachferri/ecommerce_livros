@@ -1,51 +1,360 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<link rel="stylesheet" href="/custom.css">
-
 <head>
+
     <meta charset="UTF-8">
-    <title>Área Administrativa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Área Administrativa | Livraria HF</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/custom.css">
+
 </head>
 
 
 <body>
 
-<h1>Área Administrativa</h1>
+<div class="texture"></div>
 
-<h2>Menu Administrativo</h2>
 
-<p>Selecione uma funcionalidade:</p>
+<!-- ========================= -->
+<!-- TOPO -->
+<!-- ========================= -->
 
-<br>
+<header class="topbar">
 
-<a href="/admin/clientes">
-    <button type="button">Consultar clientes</button>
-</a>
+    <div class="topbar-inner">
 
-<br><br>
+        <div class="brand">
 
-<a href="/admin/pedidos">
-    <button type="button">Consultar pedidos</button>
-</a>
+            <span class="brand-mark">
+                Livraria HF
+            </span>
 
-<br><br>
+            <span class="brand-tag">
+                Da busca a entrega, cada etapa foi pensada para ser simples
+            </span>
 
-<a href="/admin/status">
-    <button type="button">Alterar status dos pedidos</button>
-</a>
+        </div>
 
-<br><br>
+    </div>
 
-<a href="/admin/grafico">
-    <button type="button">Gráfico de análise</button>
-</a>
+</header>
 
-<br><br>
 
-<a href="/">
-    <button type="button">Voltar para início</button>
-</a>
+<!-- ========================= -->
+<!-- MENU ADMINISTRATIVO -->
+<!-- ========================= -->
+
+<nav class="catalog-nav">
+
+    <div class="wrap">
+
+        <a href="/admin" class="admin">
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.6">
+
+                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+
+                <path d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.56V20a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .33-1.87 1.7 1.7 0 0 0-1.55-1H4a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.33-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.33h.02a1.7 1.7 0 0 0 1-1.55V4a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55h.02a1.7 1.7 0 0 0 1.87-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.33 1.87v.02a1.7 1.7 0 0 0 1.55 1H20a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1Z"/>
+
+            </svg>
+
+            Área administrativa - Login
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ========================= -->
+<!-- CONTEÚDO -->
+<!-- ========================= -->
+
+<section class="section">
+
+    <div class="wrap">
+
+
+        <!-- TÍTULO -->
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="eyebrow-line">
+
+                    <span class="rule"></span>
+
+                    Livraria HF
+
+                </div>
+
+                <h1 class="section-title">
+                    Área Administrativa
+                </h1>
+
+            </div>
+
+            <p class="section-title">
+                Gerencie clientes, pedidos e informações da livraria.
+            </p>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- CRUD DE CLIENTES -->
+        <!-- ========================= -->
+
+        <h2 class="section-title">
+            Gerenciamento de Clientes
+        </h2>
+
+
+        <div class="index-grid">
+
+
+            <!-- CADASTRAR -->
+
+            <div class="index-card">
+
+                <span class="index-num">
+                    Cliente
+                </span>
+
+                <h3>
+                    Cadastrar
+                </h3>
+
+                <p>
+                    Cadastre um novo cliente na Livraria HF.
+                </p>
+
+                <br>
+
+                <a href="/cadastro" class="btn-primary">
+                    Acessar
+                </a>
+
+            </div>
+
+
+            <!-- CONSULTAR -->
+
+            <div class="index-card">
+
+                <span class="index-num">
+                    Cliente
+                </span>
+
+                <h3>
+                    Consultar
+                </h3>
+
+                <p>
+                    Consulte os clientes cadastrados no sistema.
+                </p>
+
+                <br>
+
+                <a href="/clientes" class="btn-primary">
+                    Acessar
+                </a>
+
+            </div>
+
+
+            <!-- ALTERAR -->
+
+            <div class="index-card">
+
+                <span class="index-num">
+                    Cliente
+                </span>
+
+                <h3>
+                    Alterar
+                </h3>
+
+                <p>
+                    Selecione um cliente para alterar seus dados cadastrais.
+                </p>
+
+                <br>
+
+                <a href="/clientes/alterar" class="btn-primary">
+                    Acessar
+                </a>
+
+            </div>
+
+
+            <!-- INATIVAR -->
+
+            <div class="index-card">
+
+                <span class="index-num">
+                    Cliente
+                </span>
+
+                <h3>
+                    Inativar
+                </h3>
+
+                <p>
+                    Selecione um cliente para alterar seu status para inativo.
+                </p>
+
+                <br>
+
+                <a href="/clientes" class="btn-primary">
+                    Acessar
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <br>
+        <br>
+
+
+        <!-- ========================= -->
+        <!-- OUTRAS FUNÇÕES -->
+        <!-- ========================= -->
+
+        <h2 class="section-title">
+            Outras funções administrativas
+        </h2>
+
+
+        <div class="index-grid">
+
+
+            <!-- CONSULTAR PEDIDOS -->
+
+            <div class="index-card">
+
+                <span class="index-num">
+                    Pedidos
+                </span>
+
+                <h3>
+                    Consultar
+                </h3>
+
+                <p>
+                    Consulte os pedidos realizados pelos clientes.
+                </p>
+
+                <br>
+
+                <a href="/admin/pedidos" class="btn-primary">
+                    Acessar
+                </a>
+
+            </div>
+
+
+            <!-- ALTERAR STATUS -->
+
+            <div class="index-card">
+
+                <span class="index-num">
+                    Pedidos
+                </span>
+
+                <h3>
+                    Alterar status
+                </h3>
+
+                <p>
+                    Atualize o status dos pedidos durante o processo de entrega.
+                </p>
+
+                <br>
+
+                <a href="/admin/status" class="btn-primary">
+                    Acessar
+                </a>
+
+            </div>
+
+
+            <!-- ANÁLISE GRÁFICA -->
+
+            <div class="index-card">
+
+                <span class="index-num">
+                    Análise
+                </span>
+
+                <h3>
+                    Análise Gráfica
+                </h3>
+
+                <p>
+                    Consulte informações apresentadas em gráficos para análise da loja.
+                </p>
+
+                <br>
+
+                <a href="/admin/grafico" class="btn-primary">
+                    Acessar
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <br>
+        <br>
+
+
+        <!-- VOLTAR -->
+
+        <a href="/" class="btn-ghost">
+            Voltar para início
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- RODAPÉ -->
+<!-- ========================= -->
+
+<footer>
+
+    <div class="wrap">
+
+        <span>
+            Livraria HF
+        </span>
+
+    </div>
+
+</footer>
+
 
 </body>
 

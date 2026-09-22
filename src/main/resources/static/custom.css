@@ -337,3 +337,16 @@ footer .wrap{
     outline:2px solid var(--brass);
     outline-offset:2px;
 }
+
+.home-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.endereco-titulo {
+    margin-top: 15px;
+    padding-top: 25px;
+    border-top: 1px solid var(--line);
+    font-family: "Fraunces", serif;
+    font-size: 24px;
+    color: var(--ink);
+}

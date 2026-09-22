@@ -1,50 +1,398 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<link rel="stylesheet" href="/custom.css">
-
 <head>
+
     <meta charset="UTF-8">
-    <title>Cadastrar Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastrar Cliente | Livraria HF</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/custom.css">
+
+    <style>
+
+        .cadastro-area {
+            padding: 55px 0 70px;
+        }
+
+        .cadastro-box {
+            max-width: 700px;
+            margin: 0 auto;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            padding: 35px 45px 40px;
+        }
+
+        .cadastro-title {
+            margin: 18px 0 10px;
+            font-family: "Fraunces", serif;
+            font-size: 38px;
+            color: var(--ink);
+        }
+
+        .cadastro-description {
+            color: var(--ink-soft);
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .cadastro-form {
+            display: grid;
+            gap: 18px;
+        }
+
+        .campo {
+            display: grid;
+            gap: 7px;
+        }
+
+        .campo label {
+            font-weight: 600;
+            color: var(--ink);
+            font-size: 15px;
+        }
+
+        .campo input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 14px;
+            border: 1px solid var(--line);
+            background: #fffdf7;
+            color: var(--ink);
+            font-family: "Source Sans 3", sans-serif;
+            font-size: 16px;
+            border-radius: 2px;
+        }
+
+        .campo input:focus {
+            outline: 2px solid var(--brass);
+            outline-offset: 1px;
+        }
+
+        .cadastro-actions {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .btn-voltar {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--ink);
+            padding-bottom: 3px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 700px) {
+
+            .cadastro-box {
+                margin: 0 20px;
+                padding: 30px 25px 35px;
+            }
+
+            .cadastro-title {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<h1>Cadastrar Cliente</h1>
+<div class="texture"></div>
 
-<form>
 
-    <label>Nome:</label>
-    <input type="text" name="nome">
+<!-- ========================= -->
+<!-- TOPO ADMINISTRATIVO -->
+<!-- ========================= -->
 
-    <br><br>
+<header class="topbar">
 
-    <label>CPF:</label>
-    <input type="text" name="cpf">
+    <div class="topbar-inner">
 
-    <br><br>
+        <div class="brand">
 
-    <label>E-mail:</label>
-    <input type="email" name="email">
+            <span class="brand-mark">
+                Livraria HF
+            </span>
 
-    <br><br>
+            <span class="brand-tag">
+                Da busca a entrega, cada etapa foi pensada para ser simples
+            </span>
 
-    <label>Telefone:</label>
-    <input type="text" name="telefone">
+        </div>
 
-    <br><br>
+    </div>
 
-    <label>Senha:</label>
-    <input type="password" name="senha">
+</header>
 
-    <br><br>
 
-    <button type="submit">Cadastrar</button>
-    <a href="/">
-        <button type="button">Voltar</button>
-    </a>
+<!-- ========================= -->
+<!-- FAIXA ADMINISTRATIVA -->
+<!-- ========================= -->
 
-</form>
+<nav class="catalog-nav">
+
+    <div class="wrap">
+
+        <a href="/admin" class="admin">
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.6">
+
+                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+
+                <path d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.56V20a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .33-1.87 1.7 1.7 0 0 0-1.55-1H4a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.33-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.33h.02a1.7 1.7 0 0 0 1-1.55V4a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55h.02a1.7 1.7 0 0 0 1.87-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.33-1.87v.02a1.7 1.7 0 0 0 1.55 1H20a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1Z"/>
+
+            </svg>
+
+            Área administrativa - Login
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ========================= -->
+<!-- CADASTRO DE CLIENTE -->
+<!-- ========================= -->
+
+<section class="cadastro-area">
+
+    <div class="wrap">
+
+        <div class="cadastro-box">
+
+            <div class="eyebrow-line">
+
+                <span class="rule"></span>
+
+                Livraria HF
+
+            </div>
+
+
+            <h1 class="cadastro-title">
+                Cadastrar Cliente
+            </h1>
+
+
+            <p class="cadastro-description">
+                Preencha os dados abaixo para cadastrar um novo cliente.
+            </p>
+
+
+            <form action="/clientes/salvar"
+                  method="post"
+                  class="cadastro-form">
+
+
+                <div class="campo">
+
+                    <label for="nome">
+                        Nome
+                    </label>
+
+                    <input type="text"
+                           id="nome"
+                           name="nome"
+                           required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="cpf">
+                        CPF
+                    </label>
+
+                    <input type="text"
+                           id="cpf"
+                           name="cpf"
+                           required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="telefone">
+                        Telefone
+                    </label>
+
+                    <input type="text"
+                           id="telefone"
+                           name="telefone">
+
+                </div>
+                <!-- ========================= -->
+                <!-- ENDEREÇO DO CLIENTE -->
+                <!-- ========================= -->
+
+                <div class="endereco-titulo">
+                    Endereço
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="cep">
+                        CEP
+                    </label>
+
+                    <input type="text"
+                           id="cep"
+                           name="cep"
+                           placeholder="00000-000">
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="logradouro">
+                        Logradouro
+                    </label>
+
+                    <input type="text"
+                           id="logradouro"
+                           name="logradouro"
+                           placeholder="Rua, Avenida, etc.">
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="numero">
+                        Número
+                    </label>
+
+                    <input type="text"
+                           id="numero"
+                           name="numero">
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="bairro">
+                        Bairro
+                    </label>
+
+                    <input type="text"
+                           id="bairro"
+                           name="bairro">
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="cidade">
+                        Cidade
+                    </label>
+
+                    <input type="text"
+                           id="cidade"
+                           name="cidade">
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="estado">
+                        Estado
+                    </label>
+
+                    <input type="text"
+                           id="estado"
+                           name="estado"
+                           placeholder="Ex.: RS">
+
+                </div>
+
+
+
+
+                <div class="cadastro-actions">
+
+                    <button type="submit"
+                            class="btn-primary">
+
+                        Cadastrar
+
+                    </button>
+
+
+                    <a href="/admin"
+                       class="btn-voltar">
+
+                        Voltar
+
+                    </a>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- RODAPÉ -->
+<!-- ========================= -->
+
+<footer>
+
+    <div class="wrap">
+
+        <span>
+            Livraria HF
+        </span>
+
+    </div>
+
+</footer>
+
 
 </body>
+
 </html>
